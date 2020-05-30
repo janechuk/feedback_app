@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Log In{% endblock %}
 {% block content %}
 
-<h1 class="display-2">Sign Up</h1>
-<form id="add_user" method="POST">
+<h1 class="display-2">Log In</h1>
+<p class="lead">Don't have an account? <a href="/register"> Register here</a></p>
+<form id="logIn_user" method="POST">
     {{ form.hidden_tag() }}
     <!--add type=hidden form fields -->
     {% for field in form
@@ -14,10 +15,11 @@ if field.widget.input_type != 'hidden' %}
         {{ field (class_="form-control") }}
         {% for error in field.errors %}
     <p class="form-text text-danger">{{ error }}</p>
+
     {% endfor %}
     </p>
     {% endfor %}
-    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-primary" type="submit">Log In</button>
 </form>
 
 {% endblock %}
